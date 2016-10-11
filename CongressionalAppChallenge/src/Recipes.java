@@ -44,6 +44,12 @@ public class Recipes extends JFrame {
 		contentPane.add(panel, BorderLayout.NORTH);
 		
 		JButton button_1 = new JButton("+");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				hide();
+				RecipesPlus reciplesPlus = new RecipesPlus();
+			}
+		});
 		panel.add(button_1);
 		
 		JLabel lblRecipes = new JLabel("Recipes");
