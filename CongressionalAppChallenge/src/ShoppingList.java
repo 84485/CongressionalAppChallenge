@@ -5,7 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class Pantry extends JFrame {
+public class ShoppingList extends JFrame {
 
 	private JPanel contentPane;
 
@@ -16,7 +16,7 @@ public class Pantry extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Pantry frame = new Pantry();
+					ShoppingList frame = new ShoppingList();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -28,7 +28,7 @@ public class Pantry extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Pantry() {
+	public ShoppingList() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

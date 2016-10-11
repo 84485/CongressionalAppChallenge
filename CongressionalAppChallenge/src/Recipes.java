@@ -4,16 +4,14 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
 
-public class FoodApp extends JFrame {
+public class Recipes extends JFrame {
 
 	private JPanel contentPane;
-	public int number;
 
 	/**
 	 * Launch the application.
@@ -22,7 +20,7 @@ public class FoodApp extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FoodApp frame = new FoodApp();
+					Recipes frame = new Recipes();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -34,25 +32,31 @@ public class FoodApp extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public FoodApp() {
+	public Recipes() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
 		
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.NORTH);
 		
-		JLabel lblCookingAssistant = new JLabel("Cooking Assistant");
-		panel.add(lblCookingAssistant);
+		JButton button_1 = new JButton("+");
+		panel.add(button_1);
 		
-		JPanel panel_1 = new JPanel();
-		contentPane.add(panel_1, BorderLayout.SOUTH);
+		JLabel lblRecipes = new JLabel("Recipes");
+		panel.add(lblRecipes);
 		
-		JPanel panel_2 = new JPanel();
-		contentPane.add(panel_2, BorderLayout.CENTER);
+		JButton button = new JButton("-");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		panel.add(button);
+		setVisible(true);
+	
 	}
 
 }
