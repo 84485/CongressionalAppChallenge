@@ -1,20 +1,19 @@
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.List;
+import java.io.File;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
 
 public class FoodApp extends JFrame {
 
 	private JPanel contentPane;
 	public int number;
-
+	public static ArrayList<String> pantryNames = new ArrayList<String>();
 	/**
 	 * Launch the application.
 	 */
@@ -29,6 +28,7 @@ public class FoodApp extends JFrame {
 				}
 			}
 		});
+		
 	}
 
 	/**
@@ -53,6 +53,25 @@ public class FoodApp extends JFrame {
 		
 		JPanel panel_2 = new JPanel();
 		contentPane.add(panel_2, BorderLayout.CENTER);
+	}
+	public static void createFile(){
+		  File f = null;
+	      boolean bool = false;
+	      try{
+	         // create new file
+	         f = new File("data.txt");
+	         // tries to create new file in the system
+	         bool = f.createNewFile();
+	      }catch(Exception e){
+	         e.printStackTrace();
+	      }
+	}
+	public static ArrayList getPantryNames(){
+		pantryNames.add("test1");
+		pantryNames.add("test2");
+		pantryNames.add("cupcake");
+		pantryNames.add("stone");
+		return pantryNames;
 	}
 
 }
