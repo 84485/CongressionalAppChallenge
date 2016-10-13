@@ -89,6 +89,7 @@ public class Start extends JFrame {
 				dispose();
 				Recipes recipe = new Recipes();
 			}
+			
 		});
 		panel_2.add(btnRecipes);
 	}
