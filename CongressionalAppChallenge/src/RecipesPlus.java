@@ -146,6 +146,24 @@ public class RecipesPlus extends JFrame {
 		
 		comboBoxIngred2.setBounds(320, 134, 114, 27);
 		panel.add(comboBoxIngred2);
+		
+		JButton btnSave = new JButton("Save");
+		btnSave.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		btnSave.setBounds(320, 233, 117, 29);
+		panel.add(btnSave);
+		
+		JButton btnMore = new JButton("More?");
+		btnMore.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		btnMore.setBounds(6, 172, 117, 29);
+		panel.add(btnMore);
 		setVisible(true);
 		
 		
