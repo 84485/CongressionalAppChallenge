@@ -1,8 +1,11 @@
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 public class Pantry extends JFrame {
@@ -30,12 +33,23 @@ public class Pantry extends JFrame {
 	 */
 	public Pantry() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 300);	
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		setVisible(true);
+		contentPane.setLayout(new BorderLayout(0, 0));
+		
+		JLabel lblPantry = new JLabel("Pantry");
+		lblPantry.setHorizontalAlignment(SwingConstants.CENTER);
+		contentPane.add(lblPantry, BorderLayout.NORTH);
+		
+		ArrayList<JLabel> labels = new ArrayList<JLabel>();
+		for(int i = 0; i < FoodApp.getPantryNames().size(); i++){
+			JLabel temp = new JLabel((String) FoodApp.getPantryNames().get(i));
+			labels.add(temp);
+			contentPane.add(temp, BorderLayout.WEST);
+		}
+		
 	}
 
 }
