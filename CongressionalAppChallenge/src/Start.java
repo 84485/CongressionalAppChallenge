@@ -6,6 +6,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -15,6 +17,12 @@ public class Start extends JFrame {
 
 	private JPanel contentPane;
 	public int number;
+	
+	//these hold the three characteristics of an ingredient: the name, the unit, and the number that the user has
+	//these should be indexed identically.
+	public static ArrayList<String> pantryNames = new ArrayList<String>();
+	public static ArrayList<String> pantryUnits = new ArrayList<String>();
+	public static ArrayList<Integer> pantryNumber = new ArrayList<Integer>();
 
 	/**
 	 * Launch the application.
@@ -30,6 +38,16 @@ public class Start extends JFrame {
 				}
 			}
 		});
+		//Testing
+		
+		pantryUnits.add("lbs");
+		pantryUnits.add("g");
+		pantryUnits.add("tons");
+		pantryUnits.add("cups");
+		pantryNumber.add(1);
+		pantryNumber.add(5);
+		pantryNumber.add(200);
+		pantryNumber.add(40);
 	}
 
 	/**
@@ -42,7 +60,7 @@ public class Start extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
-		
+		createFile();
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.NORTH);
 		
@@ -77,6 +95,8 @@ public class Start extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				Pantry pantry = new Pantry();
+				Pantry.showPantry(pantry);
+				
 			}
 			
 		});
@@ -93,5 +113,31 @@ public class Start extends JFrame {
 		});
 		panel_2.add(btnRecipes);
 	}
-
+	public static void createFile(){
+		  File f = null;
+	      boolean bool = false;
+	      try{
+	         // create new file
+	         f = new File("data.txt");
+	         // tries to create new file in the system
+	         bool = f.createNewFile();
+	      }catch(Exception e){
+	         e.printStackTrace();
+	      }
+	}
+	public static ArrayList<String> getPantryNames(){
+		
+		return pantryNames;
+	}
+	public static void setPantryNames(String input){
+		pantryNames.add(input);
+	}
+	public static ArrayList getPantryUnits(){
+		
+		return pantryUnits;
+	}
+	public static ArrayList getPantryNumber(){
+		
+		return pantryNumber;
+	}
 }
