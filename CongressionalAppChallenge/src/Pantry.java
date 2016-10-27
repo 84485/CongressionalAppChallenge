@@ -8,6 +8,13 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
+import javax.swing.JTextField;
+import java.awt.FlowLayout;
+import javax.swing.BoxLayout;
+import java.awt.Panel;
+import java.awt.Component;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Pantry extends JFrame {
 
@@ -53,47 +60,65 @@ public class Pantry extends JFrame {
 		
 		JPanel leftPanel = new JPanel();
 		contentPane.add(leftPanel, BorderLayout.WEST);
+		leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.Y_AXIS));
 		
 		JPanel rightPanel = new JPanel();
 		contentPane.add(rightPanel, BorderLayout.EAST);
+		rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
 		
 		JPanel bottomPanel = new JPanel();
 		contentPane.add(bottomPanel, BorderLayout.SOUTH);
 		
 		JButton btnAddItem = new JButton("Add Item");
-		btnAddItem.setHorizontalAlignment(SwingConstants.LEFT);
+		btnAddItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				AddIngredientFrame ingredientFrame = new AddIngredientFrame();
+				AddIngredientFrame.showAddIngredient(ingredientFrame);
+			}
+		});
 		bottomPanel.add(btnAddItem);
+		
+		JButton returntomenu = new JButton("Return to Main Menu");
+		returntomenu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				Start start = new Start();
+				Start.showStart(start);
+			}
+		});
+		bottomPanel.add(returntomenu);
+		
+		JPanel centerPanel = new JPanel();
+		contentPane.add(centerPanel, BorderLayout.CENTER);
+		centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
 		setVisible(true);
 		
-		Start.setPantryNames("cake");
-		Start.setPantryNames("pie");
-		Start.setPantryNames("chocolate");
-		Start.setPantryNames("glue");
 		
-		JLabel return_statement = new JLabel("<br>");
 		//Puts all of the food labels on the left side
 		ArrayList<JLabel> labels = new ArrayList<JLabel>();
 		ArrayList<JButton> minusButtons = new ArrayList<JButton>();
 		ArrayList<JButton> plusButtons = new ArrayList<JButton>();
 		ArrayList<String> pantryNames = new ArrayList<String>();
-		pantryNames = Start.getPantryNames();
-		int listSize = Start.getPantryNames().size();
+		int listSize = Start.pantryIngredients.size();
 		
 		for(int i = 0; i < listSize; i++){
-			JLabel temp = new JLabel(pantryNames.get(i));
+			JLabel temp = new JLabel(Start.pantryIngredients.get(i).getName());
 			labels.add(temp);
 			leftPanel.add(temp, BorderLayout.WEST);	
-			leftPanel.add(return_statement, BorderLayout.WEST);	
 		}
 		
 		for(int i = 0; i < listSize; i++){
-			
-			JLabel temp = new JLabel(pantryNames.get(i));
+			JLabel temp = new JLabel(Start.pantryIngredients.get(i).getUnit());
 			labels.add(temp);
 			rightPanel.add(temp, BorderLayout.EAST);	
-			//rightPanel.add(btnPlus, BorderLayout.EAST);
 		}
-		
+		for(int i = 0; i < listSize; i++){
+			JLabel temp = new JLabel(Start.pantryIngredients.get(i).getQuantity().toString());
+			temp.setAlignmentX(CENTER_ALIGNMENT);
+			labels.add(temp);
+			centerPanel.add(temp);	
+		}
 		
 	}
 
