@@ -52,6 +52,14 @@ public class Start extends JFrame {
 		JPanel panel_1 = new JPanel();
 		contentPane.add(panel_1, BorderLayout.SOUTH);
 		
+		JButton btnExit = new JButton("Exit");
+		btnExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		panel_1.add(btnExit);
+		
 		JPanel panel_2 = new JPanel();
 		contentPane.add(panel_2, BorderLayout.CENTER);
 		
@@ -77,6 +85,7 @@ public class Start extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				Pantry pantry = new Pantry();
+				
 			}
 			
 		});

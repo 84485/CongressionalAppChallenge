@@ -37,11 +37,12 @@ public class Recipes extends JFrame {
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
-		contentPane.add(panel, BorderLayout.NORTH);
+		panel.setBounds(5, 5, 440, 39);
+		contentPane.add(panel);
 		
 		JButton button_1 = new JButton("+");
 		button_1.addActionListener(new ActionListener() {
@@ -58,9 +59,40 @@ public class Recipes extends JFrame {
 		JButton button = new JButton("-");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
+				RecipesMinus recipeMinus = new RecipesMinus();
 			}
 		});
 		panel.add(button);
+		
+		JButton btnBack = new JButton("Back");
+		btnBack.setBounds(5, 244, 440, 29);
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				Start start = new Start();
+				setVisible(true);
+			}
+		});
+		contentPane.add(btnBack);
+		
+		JButton btnChocolateCake = new JButton("Chocolate Cake");
+		btnChocolateCake.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				hide();
+				ChocoCake cake = new ChocoCake();
+			}
+		});
+		btnChocolateCake.setBounds(155, 56, 142, 29);
+		contentPane.add(btnChocolateCake);
+		
+		JButton btnGrandmasBrownies = new JButton("Grandma's brownies");
+		btnGrandmasBrownies.setBounds(142, 97, 171, 29);
+		contentPane.add(btnGrandmasBrownies);
+		
+		JButton btnSpaghetti = new JButton("Spaghetti");
+		btnSpaghetti.setBounds(171, 138, 117, 29);
+		contentPane.add(btnSpaghetti);
 		setVisible(true);
 	
 	}
