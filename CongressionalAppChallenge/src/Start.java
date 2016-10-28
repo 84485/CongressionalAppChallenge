@@ -1,24 +1,36 @@
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
 
 public class Start extends JFrame {
 
 	private JPanel contentPane;
 	public int number;
-
+	public static ArrayList<Ingredient> pantryIngredients = new ArrayList<Ingredient>();
 	/**
 	 * Launch the application.
 	 */
+	public static void showStart(Start start) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					start.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		
+	}
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
