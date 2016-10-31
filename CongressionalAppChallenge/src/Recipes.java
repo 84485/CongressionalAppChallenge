@@ -69,9 +69,8 @@ public class Recipes extends JFrame {
 		btnBack.setBounds(5, 244, 440, 29);
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
+				hide();
 				Start start = new Start();
-				setVisible(true);
 			}
 		});
 		contentPane.add(btnBack);

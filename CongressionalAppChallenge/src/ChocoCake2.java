@@ -86,6 +86,30 @@ public class ChocoCake2 extends JFrame {
 		JLabel lblNewLabel_7 = new JLabel("choclate frosting");
 		lblNewLabel_7.setBounds(189, 146, 115, 16);
 		contentPane.add(lblNewLabel_7);
+		
+		JLabel lblDirections = new JLabel("DIRECTIONS");
+		lblDirections.setBounds(6, 240, 115, 16);
+		contentPane.add(lblDirections);
+		
+		JLabel lblHeatOvenTo = new JLabel("Heat oven to 350 degrees");
+		lblHeatOvenTo.setBounds(6, 268, 192, 16);
+		contentPane.add(lblHeatOvenTo);
+		
+		JLabel lblStirSugar = new JLabel("Stir sugar, flour, chocolate, baking powder, baking soda, and salt");
+		lblStirSugar.setBounds(6, 280, 438, 50);
+		contentPane.add(lblStirSugar);
+		
+		JLabel lblInALarge = new JLabel("in a large bowl. Add eggs, milk, oil, vanilla. Beat on a medium");
+		lblInALarge.setBounds(6, 312, 413, 16);
+		contentPane.add(lblInALarge);
+		
+		JLabel lblSpeed = new JLabel("speed mixer for 2 minutes. Stir into boiling water(will thin).");
+		lblSpeed.setBounds(6, 327, 413, 16);
+		contentPane.add(lblSpeed);
+		
+		JLabel lblPourBatterInto = new JLabel("Pour batter into pan. Bake for 30-35 minutes total.");
+		lblPourBatterInto.setBounds(6, 342, 413, 16);
+		contentPane.add(lblPourBatterInto);
 		setVisible(true);
 	}
 }

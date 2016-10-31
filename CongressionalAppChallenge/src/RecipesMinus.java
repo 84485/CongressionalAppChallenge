@@ -86,6 +86,20 @@ public class RecipesMinus extends JFrame {
 		});
 		button_2.setBounds(400, 114, 44, 29);
 		contentPane.add(button_2);
+		
+		JButton btnBack = new JButton("Back");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				hide();
+				Recipes recipes = new Recipes();
+			}
+		});
+		btnBack.setBounds(89, 243, 117, 29);
+		contentPane.add(btnBack);
+		
+		JButton btnSave = new JButton("Save");
+		btnSave.setBounds(218, 243, 117, 29);
+		contentPane.add(btnSave);
 		setVisible(true);
 	}
 }
